@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.gzh.gzh">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.gzh.gzh.application.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:roundIcon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:hardwareAccelerated="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label,android:icon,android:allowBackup,android:name">
+
+        <!-- PictureSelector相关-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- 极光推送相关-->
+        <receiver
+            android:name="com.gzh.gzh.service.JPushService"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+                <category android:name="com.gzh.gzh" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 项目本身activity相关-->
+        <activity
+            android:name="com.gzh.gzh.activity.WelcomeActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.gzh.gzh.activity.StartActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.RegisterActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.ResetPwdActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.NumPwdActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.ChangePwd1Activity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.ChangePwd2Activity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.ChangePwd3Activity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.PwdSureActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.GesturePwd0Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.GesturePwd1Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.GesturePwd2Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.SendCoinActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.CollectCoinActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.AssetInfoActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.SendAssetActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.NoticeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.SettingActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.AboutUsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.HelpCenterActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.CollectAssetActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.AddAssetActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.CountryActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.HotActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.NewsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.NoticeInfoActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.MessageActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.AgreementActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.PrivacyPolicyActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.TradeRecordActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.VersionLogActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.LogInfoActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gzh.gzh.activity.AppDownloadActivity"
+            android:screenOrientation="portrait" />
+
+    </application>
+
+</manifest>

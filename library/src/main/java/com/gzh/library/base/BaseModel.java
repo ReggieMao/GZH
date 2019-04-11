@@ -1,0 +1,10 @@
+package com.gzh.library.base;
+
+/**
+ * Created by MaoLJ on 2018/7/18.
+ *
+ */
+
+public interface BaseModel {
+
+}
